@@ -1,30 +1,45 @@
 import React, { Component } from 'react';
+import Form from './userpost'
 
 class Search extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
+  constructor(props){
+  super(props);
+  this.state = {
+    isHidden: false
   }
+  this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.setState(prevState =>({
+      isHidden: !prevState.isHidden
+    }));
+  }
+    
   
   render() {
     return (
-      <div className="row">
+      <div className="row pb-3">
         <div className="col-8 d-flex align-items-end">
+
         <form className="form-inline">
           <input className="form-control mr-sm-2" type="text" name="filter" placeholder="Filter" />
         </form>
+
           <div className="dropdown show">
-            <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By Title</a>
+            <a className="dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By</a>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a className="dropdown-item" href="#">Votes</a>
-              <a className="dropdown-item" href="#">Date</a>
-              <a className="dropdown-item" href="#">Title</a>
+              <a className="dropdown-item" href="">Title</a>
+              <a className="dropdown-item" href="">Votes</a>
+              <a className="dropdown-item" href="">Date</a>
             </div>
           </div>
+
         </div>
           <div className="col-4 d-flex justify-content-end align-items-end">
-            <button type="button" className="btn btn-primary">Post</button>
+            <button onClick={this.handleClick} type="button" className="btn btn-primary" id="postBtn">Post</button>
           </div> 
+          {this.state.isHidden && <Form />}
       </div>  
    
     );
