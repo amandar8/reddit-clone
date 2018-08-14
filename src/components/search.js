@@ -16,7 +16,6 @@ class Search extends Component {
     }));
   }
     
-  
   render() {
     return (
       <div className="row pb-3">
