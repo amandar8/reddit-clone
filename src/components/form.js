@@ -8,34 +8,35 @@ class Form extends Component {
       body: '',
       author: '',
       img: ''
-  };
+    };
   this.onChange = this.onChange.bind(this);
-}
+  this.onSubmit = this.onSubmit.bind(this);
+  }
 
-  onChange = (event) => {
+  onChange(event) {
     const name = event.target.name;
     const value = event.target.value;
 
     this.setState({[name]: value});
     console.log('name', event.target.name);
     console.log('value', event.target.value);
-    
   }
-  
-  onSubmit = (event) => {
-    event.preventDefault();
-    alert('Your form was submitted');
-   
     
-  //  .post('/', {title, body, author, img})
-  //   .then((result) => {
-
-  //   });
+  
+  onSubmit(event){
+    event.preventDefault();
+    console.log('Event: Form Submitted.');
+    let newPost = {};
+    newPost.title = this.state.title;
+    newPost.body = this.state.body;
+    newPost.author = this.state.author;
+    newPost.img = this.state.img;
+    this.props.updatePostData(newPost);
   }
   
   render() {
     return (
-      <form className="col-8 pt-3" onSubmit={(event)=>this.props.onSubmit(event, this.state)}>
+      <form className="col-8 pt-3" onSubmit={(event=> this.onSubmit(event))}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input className="form-control" type="text" name="title" value={this.state.title} 
@@ -43,7 +44,7 @@ class Form extends Component {
         </div>
         <div className="form-group">
           <label htmlFor="body">Body</label>
-          <textarea className="form-control" type="text" name="body" rows="2" value={this.state.body} 
+          <textarea className="form-control" type="text" name="body" value={this.state.body} 
           onChange={this.onChange}/>
         </div>
         <div className="form-group">
