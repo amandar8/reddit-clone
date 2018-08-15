@@ -9,7 +9,7 @@ class Post extends Component {
   }
 
   render() {
-    return <div className="media bg-light mb-2 p-4">
+    return <div className="media rounded bg-light mb-2 p-4">
           <div className="col-sm-12 col-md-6 col-lg-3">
             <Img imgURL={this.props.img}/>
             </div>
