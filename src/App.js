@@ -13,7 +13,6 @@ class App extends Component {
     this.state = {
       posts: postData,
       postHidden: true,
-      // comments: comments
     }
     this.updatePostHidden = this.updatePostHidden.bind(this);
     this.updatePostData = this.updatePostData.bind(this);
@@ -45,9 +44,8 @@ class App extends Component {
           <div className="row pb-2 pt-4 pr-3 pl-3 d-flex justify-content-center">
             <div className="col-12">
               <Search updatePostHidden={() => this.updatePostHidden}/>
-              {!this.state.postHidden && <Form updatePostData={newPost => this.updatePostData(newPost)}/>}
+              {!this.state.postHidden && <Form updatePostData={newPost => this.updatePostData(newPost)} updatePostHidden={() => this.updatePostHidden()}/>}
               {this.renderPosts()}
-
             </div>
           </div>
         </div>

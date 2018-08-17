@@ -6,14 +6,14 @@ class Search extends Component {
     this.state = {
       postHidden: false
     }
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(){
-    this.setState(prevState =>({
-      postHidden: !prevState.postHidden
-    }));
-  }  
+  // handleClick(){
+  //   this.setState(prevState =>({
+  //     postHidden: !prevState.postHidden
+  //   }));
+  // }  
     
   render() {
     return (
@@ -27,9 +27,9 @@ class Search extends Component {
           <div className="dropdown show">
             <a className="dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sort By</a>
             <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a className="dropdown-item" href="">Title</a>
-              <a className="dropdown-item" href="">Votes</a>
-              <a className="dropdown-item" href="">Date</a>
+              <div className="dropdown-item" href="">Title</div>
+              <div className="dropdown-item" href="">Votes</div>
+              <div className="dropdown-item" href="">Date</div>
             </div>
           </div>
 

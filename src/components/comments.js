@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Comments extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +8,6 @@ class Comments extends Component {
    };
   //  this.onChange = this.onChange.bind(this);
   }
-
 
   onSubmit(event){
     event.preventDefault();
@@ -24,9 +22,9 @@ class Comments extends Component {
     return (
       <form className="commentform" onSubmit={(event=> this.onSubmit(event))}>
         <div className="form-row align-items-center pt-3">
-        <div className="col-6">
-          <input className="form-control" type="text" id="comment" name="comments" />
-        </div>
+          <div className="col-6">
+            <input className="form-control" type="text" id="comment" name="comments" />
+          </div>
         <button className="btn btn-primary" type="submit">Submit</button>
         </div>
       </form>

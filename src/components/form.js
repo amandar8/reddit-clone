@@ -18,11 +18,10 @@ class Form extends Component {
     const value = event.target.value;
 
     this.setState({[name]: value});
-    console.log('name', event.target.name);
-    console.log('value', event.target.value);
+    // console.log('name', event.target.name);
+    // console.log('value', event.target.value);
   }
     
-  
   onSubmit(event){
     event.preventDefault();
     console.log('Event: Form Submitted.');
@@ -32,11 +31,14 @@ class Form extends Component {
     newPost.author = this.state.author;
     newPost.imgURL = this.state.imgURL;
     this.props.updatePostData(newPost);
+    this.props.updatePostHidden();
+    console.log("is this working??");
+    
   }
   
   render() {
     return (
-      <form className="col-8 pt-3" onSubmit={(event=> this.onSubmit(event))}>
+      <form className="col-8 pt-3" onSubmit={(event=> this.onSubmit(event))} ref='form'>
         <div className="form-group">
           <label htmlFor="title">Title</label>
           <input className="form-control" type="text" name="title" value={this.state.title} 
@@ -59,7 +61,7 @@ class Form extends Component {
         </div>
         <button type="submit" className="btn btn-primary">Create Post</button>
         </form>
-   );
+    );
   }
 }
  
