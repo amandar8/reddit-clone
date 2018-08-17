@@ -13,7 +13,7 @@ class Search extends Component {
     this.setState(prevState =>({
       postHidden: !prevState.postHidden
     }));
-  }
+  }  
     
   render() {
     return (

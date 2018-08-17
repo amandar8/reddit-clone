@@ -7,7 +7,7 @@ class Form extends Component {
       title: '',
       body: '',
       author: '',
-      img: ''
+      imgURL: ''
     };
   this.onChange = this.onChange.bind(this);
   this.onSubmit = this.onSubmit.bind(this);
@@ -30,7 +30,7 @@ class Form extends Component {
     newPost.title = this.state.title;
     newPost.body = this.state.body;
     newPost.author = this.state.author;
-    newPost.img = this.state.img;
+    newPost.imgURL = this.state.imgURL;
     this.props.updatePostData(newPost);
   }
   
@@ -53,8 +53,8 @@ class Form extends Component {
           onChange={this.onChange}/>
         </div>
         <div className="form-group">
-          <label htmlFor="img">Image URL</label>
-          <input className="form-control" type="text" name="img"value={this.state.img} 
+          <label htmlFor="imgURL">Image URL</label>
+          <input className="form-control" type="text" name="imgURL"value={this.state.imgURL} 
           onChange={this.onChange}/>
         </div>
         <button type="submit" className="btn btn-primary">Create Post</button>

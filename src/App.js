@@ -12,14 +12,15 @@ class App extends Component {
     super(props)
     this.state = {
       posts: postData,
-      postHidden: true
+      postHidden: true,
+      // comments: comments
     }
     this.updatePostHidden = this.updatePostHidden.bind(this);
     this.updatePostData = this.updatePostData.bind(this);
   }
 
   renderPosts () {
-    return this.state.posts.map(post => <Post key={post.id} img={post.imgURL} title={post.title} author={post.author} description={post.description} />)
+    return this.state.posts.map(post => <Post key={post.id} imgURL={post.imgURL} title={post.title} author={post.author} body={post.body} comments={post.comments}/>)
   }
 
   updatePostHidden() {
@@ -46,6 +47,7 @@ class App extends Component {
               <Search updatePostHidden={() => this.updatePostHidden}/>
               {!this.state.postHidden && <Form updatePostData={newPost => this.updatePostData(newPost)}/>}
               {this.renderPosts()}
+
             </div>
           </div>
         </div>
